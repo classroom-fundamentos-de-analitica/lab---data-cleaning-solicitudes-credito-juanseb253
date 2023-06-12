@@ -16,5 +16,9 @@ def clean_data():
     #
     # Inserte su código aquí
     #
-
+    df.dropna(axis=0, inplace=True)
+    df.sexo = df.sexo.str.lower()
     return df
+
+if __name__ == "__main__":
+    print(clean_data().sexo.value_counts())
