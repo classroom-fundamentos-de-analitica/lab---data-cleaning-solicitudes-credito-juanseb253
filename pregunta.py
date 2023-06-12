@@ -21,7 +21,7 @@ def clean_data():
     df.monto_del_credito = df.monto_del_credito.str.replace(',', '')
     df.monto_del_credito = df.monto_del_credito.astype(float)
     df.monto_del_credito = df.monto_del_credito.astype(int)
-    df.fecha_de_beneficio = pd.to_datetime(df.fecha_de_beneficio, dayfirst=True)
+    df.fecha_de_beneficio = pd.to_datetime(df.fecha_de_beneficio)
     df['sexo'] = df['sexo'].str.lower()
     df['tipo_de_emprendimiento'] = df['tipo_de_emprendimiento'].str.lower()
     df['idea_negocio'] = df['idea_negocio'].str.lower()
@@ -33,3 +33,5 @@ def clean_data():
     df.drop_duplicates(inplace=True)
     return df
 
+if __name__ == "__main__":
+    print(clean_data())
