@@ -21,7 +21,8 @@ def clean_data():
     df.monto_del_credito = df.monto_del_credito.str.replace(',', '')
     df.monto_del_credito = df.monto_del_credito.astype(float)
     df.monto_del_credito = df.monto_del_credito.astype(int)
-    df.fecha_de_beneficio = pd.to_datetime(df.fecha_de_beneficio,infer_datetime_format=True,dayfirst=False,errors='ignore')
+    df.fecha_de_beneficio = [i if i[2] == "/" else f'{i[8:]}/{i[5:7]}/{i[0:4]}' for i in df.fecha_de_beneficio]
+    df.fecha_de_beneficio = pd.to_datetime(df.fecha_de_beneficio)
     df['sexo'] = df['sexo'].str.lower()
     df['tipo_de_emprendimiento'] = df['tipo_de_emprendimiento'].str.lower()
     df['idea_negocio'] = df['idea_negocio'].str.lower()
