@@ -30,6 +30,6 @@ def clean_data():
     df['línea_credito'] = df['línea_credito'].str.lower()
     df['línea_credito'] = df['línea_credito'].str.replace('-',' ')
     df['línea_credito'] = df['línea_credito'].str.replace('_',' ')
-
+    df.drop_duplicates(inplace=True)
     return df
 
