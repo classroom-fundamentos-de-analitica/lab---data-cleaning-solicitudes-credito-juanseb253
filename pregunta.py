@@ -33,5 +33,3 @@ def clean_data():
 
     return df
 
-if __name__ == "__main__":
-    print(clean_data())
