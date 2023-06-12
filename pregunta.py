@@ -31,8 +31,11 @@ def clean_data():
     df['línea_credito'] = df['línea_credito'].str.lower()
     df['línea_credito'] = df['línea_credito'].str.replace('-',' ')
     df['línea_credito'] = df['línea_credito'].str.replace('_',' ')
+    df['barrio'] = df['barrio'].str.lower()
+    df['barrio'] = df['barrio'].str.replace('-',' ')
+    df['barrio'] = df['barrio'].str.replace('_',' ')
     df.drop_duplicates(inplace=True)
     return df
 
 if __name__ == "__main__":
-    print(clean_data())
+    print(clean_data().sexo.value_counts())
